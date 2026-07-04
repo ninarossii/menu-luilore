@@ -1,0 +1,112 @@
+@if(currentView === 'home') {
+
+<div class="container">
+
+    <h1>Scegli il tipo di menu</h1>
+
+    <div class="search">
+        <input type="text" placeholder="Cerca qui...">
+        <span>🔍</span>
+    </div>
+
+    <div class="grid">
+
+        <div class="card active">
+
+            <div class="emoji">🍽️</div>
+
+            <h2>Menu del Giorno</h2>
+
+            <p>Crea il menu quotidiano.</p>
+
+            <button (click)="openMenu()">
+                Apri
+            </button>
+
+        </div>
+
+        <div class="card disabled">
+            <div class="emoji">🎄</div>
+            <h2>Menu di Natale</h2>
+            <p>Coming soon</p>
+            <button disabled>Coming soon</button>
+        </div>
+
+        <div class="card disabled">
+            <div class="emoji">🐣</div>
+            <h2>Menu di Pasqua</h2>
+            <p>Coming soon</p>
+            <button disabled>Coming soon</button>
+        </div>
+
+        <div class="card disabled">
+            <div class="emoji">❤️</div>
+            <h2>San Valentino</h2>
+            <p>Coming soon</p>
+            <button disabled>Coming soon</button>
+        </div>
+
+    </div>
+
+</div>
+
+}
+
+@else {
+
+<div class="editor-page">
+
+    <div class="editor-card">
+
+        <button class="back" (click)="goBack()">
+            ← indietro
+        </button>
+
+        <h1>Menu del Giorno</h1>
+
+        <p class="subtitle">
+            Scrivi un piatto e poi vai a capo. Ogni riga diventerà un punto del menu.
+        </p>
+
+        <div class="field">
+
+            <label>🍝 Primi</label>
+
+            <textarea
+                rows="6"
+                placeholder="Lasagne&#10;Gnocchi al ragù&#10;Pasta e fagioli">
+            </textarea>
+
+        </div>
+
+        <div class="field">
+
+            <label>🥩 Secondi</label>
+
+            <textarea
+                rows="6"
+                placeholder="Arrosto&#10;Pollo al forno">
+            </textarea>
+
+        </div>
+
+        <div class="field">
+
+            <label>🥗 Contorni</label>
+
+            <textarea
+                rows="6"
+                placeholder="Patate&#10;Insalata">
+            </textarea>
+
+        </div>
+
+        <button class="generate">
+            🖼️ Genera PNG
+        </button>
+
+    </div>
+
+</div>
+
+}
