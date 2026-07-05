@@ -25,7 +25,7 @@
 
         </div>
 
-        <div class="card disabled">
+        <!-- <div class="card disabled">
             <div class="emoji">🎄</div>
             <h2>Menu di Natale</h2>
             <p>Coming soon</p>
@@ -41,10 +41,10 @@
 
         <div class="card disabled">
             <div class="emoji">❤️</div>
-            <h2>San Valentino</h2>
+            <h2>Menu Capodanno</h2>
             <p>Coming soon</p>
             <button disabled>Coming soon</button>
-        </div>
+        </div> -->
 
     </div>
 
@@ -52,7 +52,7 @@
 
 }
 
-@else {
+@else if (currentView === 'editor') {
 
 <div class="editor-page">
 
@@ -74,7 +74,8 @@
 
             <textarea
                 rows="6"
-                placeholder="Lasagne&#10;Gnocchi al ragù&#10;Pasta e fagioli">
+                [(ngModel)]="primi"
+                placeholder="Scrivi i primi qui...">
             </textarea>
 
         </div>
@@ -85,7 +86,8 @@
 
             <textarea
                 rows="6"
-                placeholder="Arrosto&#10;Pollo al forno">
+                [(ngModel)]="secondi"
+                placeholder="Scrivi i secondi qui...">
             </textarea>
 
         </div>
@@ -96,17 +98,37 @@
 
             <textarea
                 rows="6"
-                placeholder="Patate&#10;Insalata">
+                [(ngModel)]="contorni"
+                placeholder="Scrivi i contorni qui...">
             </textarea>
 
         </div>
 
-        <button class="generate">
-            🖼️ Genera PNG
-        </button>
+
+      <div class="button-row">
+        <button class="generate" (click)="showPreview()">Preview</button>
+        
+      </div>
 
     </div>
 
 </div>
+
+}
+
+@else if(currentView === 'preview') {
+
+    <app-menu-preview
+
+        [primi]="primi"
+
+        [secondi]="secondi"
+
+        [contorni]="contorni"
+
+        (back)="backToEditor()">
+
+
+    </app-menu-preview>
 
 }

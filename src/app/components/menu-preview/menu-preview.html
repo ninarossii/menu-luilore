@@ -1,0 +1,91 @@
+<div class="toolbar">
+
+    <div class="button-row">
+
+        <button class="back-button" (click)="goBack()">
+
+            ← Torna all'editor
+
+        </button>
+
+        <button class="back-button" (click)="downloadPng()">
+
+             Scarica PNG
+
+        </button>
+
+    </div>
+
+</div>
+
+<div id="menu-preview" class="paper"  [style.background-image]="'url(' + background + ')'">
+
+    <div class="content">
+
+        <h1>Menu</h1>
+
+        <p class="date">{{ oggi }}</p>
+
+        <div class="section">
+
+            <h2>Primi</h2>
+
+            <ul>
+
+                @for(piatto of primi.split('\n'); track piatto){
+
+                    @if(piatto.trim() !== ''){
+
+                        <li>{{ piatto }}</li>
+
+                    }
+
+                }
+
+            </ul>
+
+        </div>
+
+        <div class="section">
+
+            <h2>Secondi</h2>
+
+            <ul>
+
+                @for(piatto of secondi.split('\n'); track piatto){
+
+                    @if(piatto.trim() !== ''){
+
+                        <li>{{ piatto }}</li>
+
+                    }
+
+                }
+
+            </ul>
+
+        </div>
+
+        <div class="section">
+
+            <h2>Contorni</h2>
+
+            <ul>
+
+                @for(piatto of contorni.split('\n'); track piatto){
+
+                    @if(piatto.trim() !== ''){
+
+                        <li>{{ piatto }}</li>
+
+                    }
+
+                }
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
