@@ -1,91 +1,94 @@
-<div class="toolbar">
+<div class="preview-page">
 
-    <div class="button-row">
+    <div class="toolbar">
 
-        <button class="back-button" (click)="goBack()">
+        <div class="button-row">
 
-            ← Torna all'editor
+            <button class="back-button" (click)="goBack()">
 
-        </button>
+                ← Torna all'editor
 
-        <button class="back-button" (click)="downloadPng()">
+            </button>
 
-             Scarica PNG
+            <button class="back-button" (click)="downloadPng()">
 
-        </button>
+                Scarica PNG
 
-    </div>
-
-</div>
-
-<div id="menu-preview" class="paper"  [style.background-image]="'url(' + background + ')'">
-
-    <div class="content">
-
-        <h1>Menu</h1>
-
-        <p class="date">{{ oggi }}</p>
-
-        <div class="section">
-
-            <h2>Primi</h2>
-
-            <ul>
-
-                @for(piatto of primi.split('\n'); track piatto){
-
-                    @if(piatto.trim() !== ''){
-
-                        <li>{{ piatto }}</li>
-
-                    }
-
-                }
-
-            </ul>
-
-        </div>
-
-        <div class="section">
-
-            <h2>Secondi</h2>
-
-            <ul>
-
-                @for(piatto of secondi.split('\n'); track piatto){
-
-                    @if(piatto.trim() !== ''){
-
-                        <li>{{ piatto }}</li>
-
-                    }
-
-                }
-
-            </ul>
-
-        </div>
-
-        <div class="section">
-
-            <h2>Contorni</h2>
-
-            <ul>
-
-                @for(piatto of contorni.split('\n'); track piatto){
-
-                    @if(piatto.trim() !== ''){
-
-                        <li>{{ piatto }}</li>
-
-                    }
-
-                }
-
-            </ul>
+            </button>
 
         </div>
 
     </div>
 
+    <div id="menu-preview" class="paper"  [style.background-image]="'url(' + background + ')'">
+
+        <div class="content">
+
+            <h1>Menu</h1>
+
+            <p class="date">{{ oggi }}</p>
+
+            <div class="section">
+
+                <h2>Primi</h2>
+
+                <ul>
+
+                    @for(piatto of primi.split('\n'); track piatto){
+
+                        @if(piatto.trim() !== ''){
+
+                            <li>{{ piatto }}</li>
+
+                        }
+
+                    }
+
+                </ul>
+
+            </div>
+
+            <div class="section">
+
+                <h2>Secondi</h2>
+
+                <ul>
+
+                    @for(piatto of secondi.split('\n'); track piatto){
+
+                        @if(piatto.trim() !== ''){
+
+                            <li>{{ piatto }}</li>
+
+                        }
+
+                    }
+
+                </ul>
+
+            </div>
+
+            <div class="section">
+
+                <h2>Contorni</h2>
+
+                <ul>
+
+                    @for(piatto of contorni.split('\n'); track piatto){
+
+                        @if(piatto.trim() !== ''){
+
+                            <li>{{ piatto }}</li>
+
+                        }
+
+                    }
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
 </div>

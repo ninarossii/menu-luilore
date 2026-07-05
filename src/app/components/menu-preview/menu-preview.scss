@@ -1,11 +1,14 @@
 .toolbar{
     width:794px;
     margin:30px auto 20px auto;
+      margin-top: 10px !important;
 }
 
 .button-row{
     display:flex;
-    gap:12px;
+    gap: 12px;
+    justify-content:center;
+    
 }
 
 .back-button{
@@ -38,6 +41,7 @@
 .paper{
 
     width:794px;
+    
     min-height:1123px;
 
     margin:auto;
@@ -51,6 +55,7 @@
 
     box-sizing:border-box;
 
+    
     display:flex;
     justify-content:center;
     align-items:flex-start;
@@ -133,5 +138,25 @@
     font-style:italic;
 
     text-transform:capitalize;
+
+}
+
+
+
+@media (max-width:768px){
+
+    .paper{
+
+        transform:scale(.45);
+
+        transform-origin:top center;
+
+    }
+
+}
+
+textarea{
+
+    font-size:18px;
 
 }
