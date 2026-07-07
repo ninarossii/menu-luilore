@@ -1,41 +1,27 @@
 @if(currentView === 'home') {
 
 <div class="container">
-
-    <h1>Scegli il tipo di menu</h1>
-
+    <h1>Scegli il menu</h1>
     <div class="search">
-        <input type="text" placeholder="Cerca qui...">
-       
+        <input type="text" placeholder="Cerca qui...">      
     </div>
-
     <div class="grid">
-
         <div class="card active">
-
             <img src="/immagini/pasta.jpg" alt="Pasta" />
-
             <h2>Menu del Giorno</h2>
-
-            <p>Crea il menu quotidiano.</p>
-
+            <p>Template del menu quotidiano.</p>
             <button (click)="openMenu()">
                 Apri
-            </button>
-
-            
-            
-
+            </button>                       
         </div>
-
-        <!-- <div class="card disabled">
-            <div class="emoji">🎄</div>
+         <div class="card disabled">
+            <img src="/immagini/pasta.jpg" alt="Pasta" />
             <h2>Menu di Natale</h2>
             <p>Coming soon</p>
             <button disabled>Coming soon</button>
-        </div>
+        </div> 
 
-        <div class="card disabled">
+       <!-- <div class="card disabled">
             <div class="emoji">🐣</div>
             <h2>Menu di Pasqua</h2>
             <p>Coming soon</p>
@@ -48,11 +34,8 @@
             <p>Coming soon</p>
             <button disabled>Coming soon</button>
         </div> -->
-
     </div>
-
 </div>
-
 }
 
 @else if (currentView === 'editor') {
@@ -64,53 +47,56 @@
         <button class="back" style="padding:0;" (click)="goBack()">
             ← indietro
         </button>
-
         <h1>Menu del Giorno</h1>
-
         <p class="subtitle">
             Scrivi un piatto e poi vai a capo. Ogni riga diventerà un punto del menu.
         </p>
 
         <div class="field">
-
             <label>Primi</label>
-
             <textarea
                 rows="6"
                 [(ngModel)]="primi"
                 placeholder="Scrivi i primi qui...">
             </textarea>
-
         </div>
-
         <div class="field">
-
             <label>Secondi</label>
-
             <textarea
                 rows="6"
                 [(ngModel)]="secondi"
                 placeholder="Scrivi i secondi qui...">
             </textarea>
-
         </div>
-
         <div class="field">
-
             <label>Contorni</label>
-
             <textarea
                 rows="6"
                 [(ngModel)]="contorni"
                 placeholder="Scrivi i contorni qui...">
             </textarea>
+        </div>
+        <div class="field checkbox-field">
+            <label style="margin: 0;">
+                <input
+                    type="checkbox"
+                    [(ngModel)]="mostraDolci">
+                 Dolci
+            </label>
+        </div>
+        @if(mostraDolci){
+        <div class="field">
+            <textarea
+                rows="5"
+                [(ngModel)]="dolci"
+                placeholder="Scrivi i dolci qui...">
+            </textarea>
 
         </div>
-
+        }
 
       <div class="button-row">
         <button class="generate" (click)="showPreview()">Preview</button>
-        
       </div>
 
     </div>
@@ -120,18 +106,30 @@
 }
 
 @else if(currentView === 'preview') {
-
     <app-menu-preview
-
         [primi]="primi"
-
         [secondi]="secondi"
-
         [contorni]="contorni"
-
+        [dolci]="dolci"
+        [mostraDolci]="mostraDolci"
         (back)="backToEditor()">
-
-
     </app-menu-preview>
+}
+
+@if(currentView === 'home'){
+
+<nav class="bottom-nav">
+
+    <button class="active">
+        <i class="fa-solid fa-user"></i>
+        <span>Home</span>
+    </button>
+
+    <button>
+        <i class="fa-solid fa-book"></i>
+        <span>Storico Menu</span>
+    </button>
+
+</nav>
 
 }

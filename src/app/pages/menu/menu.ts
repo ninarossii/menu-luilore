@@ -12,10 +12,14 @@ import { MenuPreviewComponent } from '../../components/menu-preview/menu-preview
 export class MenuComponent {
 
   currentView: 'home' | 'editor' | 'preview' = 'home';
+  currentPage: 'home' | 'storico' = 'home';
 
   primi = '';
   secondi = '';
   contorni = '';
+  dolci = '';
+
+  mostraDolci = false;
 
   openMenu() {
     this.currentView = 'editor';

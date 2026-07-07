@@ -86,7 +86,32 @@
 
                 </ul>
 
+                @if(mostraDolci){
+
+                <div class="section">
+
+                    <h2>Dolci</h2>
+
+                    <ul>
+
+                        @for(piatto of dolci.split('\n'); track piatto){
+
+                            @if(piatto.trim() !== ''){
+
+                                <li>{{ piatto }}</li>
+
+                            }
+
+                        }
+
+                    </ul>
+
+                </div>
+
+                }
+
             </div>
+            
 
         </div>
 

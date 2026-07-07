@@ -25,14 +25,21 @@ export class MenuPreviewComponent implements OnInit {
 
   @Output() back = new EventEmitter<void>();
 
+  @Input() dolci = '';
+
+  @Input() mostraDolci = false;
+
   private lastIndex = -1;
 
   background = '';
 
   backgrounds = [
-    'immagini/bg1.png',
-    'immagini/bg2.png',
-    'immagini/bg3.png'
+    'immagini/sfondo-1.png',
+    'immagini/sfondo-2.png',
+    'immagini/sfondo-3.png',
+    'immagini/sfondo-4.png',
+    'immagini/sfondo-5.png',
+    
   ];
 
   oggi = this.getDataOggi();

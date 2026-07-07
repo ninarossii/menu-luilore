@@ -1,0 +1,50 @@
+.app-content{
+
+    padding-bottom:110px;
+
+}
+
+.bottom-nav{
+
+    position:fixed;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    width:320px;
+    height:72px;
+    background:rgba(255,255,255,.75);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    border-radius:36px;
+    display:flex;
+    justify-content:space-evenly;
+    align-items:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+    z-index:1000;
+
+}
+
+.bottom-nav button{
+
+    background:none;
+    border:none;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:4px;
+    cursor:pointer;
+    color:#777;
+    font-size:13px;
+}
+
+.bottom-nav button i{
+
+    font-size:22px;
+
+}
+
+.bottom-nav button.active{
+
+    color:#214d84;
+
+}
