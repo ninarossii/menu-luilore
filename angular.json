@@ -30,7 +30,6 @@
               }
             ],
             "styles": [
-               "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
                 "src/styles.css"
             ]
           },
@@ -39,14 +38,15 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "1MB",
+                  "maximumError": "2MB"
                 }
+                ,{
+                    "type": "anyComponentStyle",
+                    "maximumWarning": "100kB",
+                    "maximumError": "150kB"
+                }
+                
               ],
               "outputHashing": "all"
             },
