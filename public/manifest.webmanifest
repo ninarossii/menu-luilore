@@ -1,0 +1,16 @@
+{
+  "name": "Luilore",
+  "short_name": "Luilore",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#214d84",
+  "icons": [
+    {
+      "src": "/pwa-logo.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
