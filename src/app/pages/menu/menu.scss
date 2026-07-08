@@ -65,7 +65,8 @@ h1{
     height:140px;
     object-fit:cover;
     border-radius:16px;
-    margin-bottom:8px;
+    margin:0 auto 8px;
+    display:block;
 }
 .card h2{
     margin:20px 0 10px;
@@ -111,10 +112,18 @@ button{
     box-shadow:0 15px 40px rgba(0,0,0,.08);
 }
 .back{
-    border:none;
-    background:none;
+    border:gray 1px solid;
+    color:white;
+    background: #214e84;
     cursor:pointer;
     font-size:16px;
+    margin-bottom:20px;
+    border-radius:8px;
+    width:100px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-left:30%;
 }
 .editor-card h1{
     margin-bottom:5px;
@@ -187,7 +196,7 @@ textarea{
     bottom:20px;
     left:50%;
     transform:translateX(-50%);
-    width:390px;
+    width:320px;
     height:72px;
     background:rgba(255, 255, 255, 0.452);
     backdrop-filter:blur(20px);
@@ -223,5 +232,21 @@ textarea{
 .bottom-nav button.active{
 
     color:#214d84;
+
+}
+
+.counter{
+
+    text-align:right;
+    font-size:14px;
+    color:#666;
+    margin-top:15px;
+
+}
+
+.limit{
+
+    color:#d32f2f;
+    font-weight:bold;
 
 }

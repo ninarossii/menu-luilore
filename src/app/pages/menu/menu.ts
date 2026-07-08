@@ -36,4 +36,30 @@ export class MenuComponent {
   backToEditor() {
   this.currentView = 'editor';
 }
+
+getTotalRows(): number {
+
+  let totale = 0;
+
+  totale += this.countRows(this.primi);
+  totale += this.countRows(this.secondi);
+  totale += this.countRows(this.contorni);
+
+  if (this.mostraDolci) {
+    totale += this.countRows(this.dolci);
+  }
+
+  return totale;
+}
+
+countRows(text: string): number {
+
+  if (!text.trim()) {
+    return 0;
+  }
+
+  return text
+    .split('\n')
+    .filter(riga => riga.trim() !== '').length;
+}
 }

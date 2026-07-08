@@ -39,6 +39,11 @@ export class MenuPreviewComponent implements OnInit {
     'immagini/sfondo-3.png',
     'immagini/sfondo-4.png',
     'immagini/sfondo-5.png',
+    'immagini/sfondo-7.png',
+    'immagini/sfondo-8.png',
+    'immagini/sfondo-9.png',
+    'immagini/sfondo-10.png',
+    'immagini/sfondo-11.png'
     
   ];
 

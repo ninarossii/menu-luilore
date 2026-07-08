@@ -7,7 +7,7 @@
     </div>
     <div class="grid">
         <div class="card active">
-            <img src="/immagini/pasta.jpg" alt="Pasta" />
+            <img src="/immagini/giorno.jpg" alt="Pasta" />
             <h2>Menu del Giorno</h2>
             <p>Template del menu quotidiano.</p>
             <button (click)="openMenu()">
@@ -15,20 +15,20 @@
             </button>                       
         </div>
          <div class="card disabled">
-            <img src="/immagini/pasta.jpg" alt="Pasta" />
-            <h2>Menu di Natale</h2>
-            <p>Coming soon</p>
+            <img src="/immagini/pesce.jpg" alt="Pasta" />
+            <h2>Menu di Ferragosto</h2>
+            <p>Template del menu di Ferragosto.</p>
             <button disabled>Coming soon</button>
         </div> 
 
-       <!-- <div class="card disabled">
+        <!-- <div class="card disabled">
             <div class="emoji">🐣</div>
             <h2>Menu di Pasqua</h2>
             <p>Coming soon</p>
             <button disabled>Coming soon</button>
         </div>
 
-        <div class="card disabled">
+         <div class="card disabled">
             <div class="emoji">❤️</div>
             <h2>Menu Capodanno</h2>
             <p>Coming soon</p>
@@ -51,6 +51,14 @@
         <p class="subtitle">
             Scrivi un piatto e poi vai a capo. Ogni riga diventerà un punto del menu.
         </p>
+
+        <div
+            class="counter"
+            [class.limit]="getTotalRows() > 16">
+
+            Righe utilizzate: {{ getTotalRows() }}/16
+
+        </div>
 
         <div class="field">
             <label>Primi</label>
@@ -121,12 +129,12 @@
 <nav class="bottom-nav">
 
     <button class="active">
-        <i class="fa-solid fa-user"></i>
+        <i class="bi bi-house"></i>
         <span>Home</span>
     </button>
 
-    <button>
-        <i class="fa-solid fa-book"></i>
+    <button style="color: rgb(219, 218, 218);">
+        <i class="bi bi-clock-history"></i>
         <span>Storico Menu</span>
     </button>
 
