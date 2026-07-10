@@ -10,159 +10,159 @@
         <input type="text" placeholder="Cerca qui...">      
         
     </div>
-            <div class="grid">
-                <div class="card active">
+        <div class="grid">
+            <div class="card active">
 
-            <div class="card-image">
-                <img src="/immagini/giorno.jpg" alt="Menu del Giorno">
+                <div class="card-image">
+                    <img src="/immagini/giorno.jpg" alt="Menu del Giorno">
+                </div>
+
+                <div class="card-content">
+
+                    <h2>Menu del Giorno</h2>
+
+                    <p>Template del menu quotidiano.</p>
+
+                    <button (click)="openMenu()">
+                        Apri
+                    </button>
+
+                </div>
+
+            </div>
+            <!--<div class="card disabled">
+                <img src="/immagini/pesce.jpg" alt="Pasta" />
+                <h2>Menu di Ferragosto</h2>
+                <p>Template del menu di Ferragosto.</p>
+                <button disabled>Coming soon</button>
+            </div> 
+
+            <div class="card disabled">
+                <div class="emoji">🐣</div>
+                <h2>Menu di Pasqua</h2>
+                <p>Coming soon</p>
+                <button disabled>Coming soon</button>
             </div>
 
-            <div class="card-content">
-
-                <h2>Menu del Giorno</h2>
-
-                <p>Template del menu quotidiano.</p>
-
-                <button (click)="openMenu()">
-                    Apri
-                </button>
-
-            </div>
-
-        </div>
-         <!--<div class="card disabled">
-            <img src="/immagini/pesce.jpg" alt="Pasta" />
-            <h2>Menu di Ferragosto</h2>
-            <p>Template del menu di Ferragosto.</p>
-            <button disabled>Coming soon</button>
-        </div> 
-
-         <div class="card disabled">
-            <div class="emoji">🐣</div>
-            <h2>Menu di Pasqua</h2>
-            <p>Coming soon</p>
-            <button disabled>Coming soon</button>
-        </div>
-
-         <div class="card disabled">
-            <div class="emoji">❤️</div>
-            <h2>Menu Capodanno</h2>
-            <p>Coming soon</p>
-            <button disabled>Coming soon</button>
-        </div> -->
+            <div class="card disabled">
+                <div class="emoji">❤️</div>
+                <h2>Menu Capodanno</h2>
+                <p>Coming soon</p>
+                <button disabled>Coming soon</button>
+            </div> -->
+         </div>
     </div>
+    }
+
+    @else if (currentView === 'editor') {
+
+    <div class="editor-page">
+
+        <div class="editor-card">
+
+            <button class="back" style="padding:0;" (click)="goBack()">
+            <i class="bi bi-chevron-left"></i>
+            </button>
+            <h1 style="font-weight: bold; margin-bottom: 10px;">Menu del Giorno</h1>
+            <p class="subtitle">
+                Scrivi un piatto e poi vai a capo. Ogni riga diventerà un punto del menu.
+            </p>
+
+            <div
+                class="counter"
+                [class.limit]="getTotalRows() > 16">
+
+                Righe {{ getTotalRows() }} di 16 utilizzate
+
+            </div>
+
+            <div class="field">
+                <label>Primi</label>
+                <textarea
+                    rows="6"
+                    [(ngModel)]="primi"
+                    placeholder="Scrivi i primi qui...">
+                </textarea>
+            </div>
+            <div class="field">
+                <label>Secondi</label>
+                <textarea
+                    rows="6"
+                    [(ngModel)]="secondi"
+                    placeholder="Scrivi i secondi qui...">
+                </textarea>
+            </div>
+            <div class="field">
+                <label>Contorni</label>
+                <textarea
+                    rows="6"
+                    [(ngModel)]="contorni"
+                    placeholder="Scrivi i contorni qui...">
+                </textarea>
+            </div>
+            <div class="field checkbox-field">
+                <div class="switch">
+
+                    <label for="dolci" class="switch-label">
+                        Dolci
+                    </label>
+
+                    <input
+                        id="dolci"
+                        type="checkbox"
+                        [(ngModel)]="mostraDolci">
+
+                    <label for="dolci" class="toggle"></label>
+
+                </div>
+            </div>
+
+            @if(mostraDolci){
+            <div class="field">
+                <textarea
+                    rows="5"
+                    [(ngModel)]="dolci"
+                    placeholder="Scrivi i dolci qui...">
+                </textarea>
+
+            </div>
+            }
+
+        <div class="button-row">
+            <button class="generate" (click)="showPreview()"><i class="bi bi-eye"></i> Preview</button>
+        </div>
+
+        </div>
+
 </div>
-}
 
-@else if (currentView === 'editor') {
+    }
 
-<div class="editor-page">
+    @else if(currentView === 'preview') {
+        <app-menu-preview
+            [primi]="primi"
+            [secondi]="secondi"
+            [contorni]="contorni"
+            [dolci]="dolci"
+            [mostraDolci]="mostraDolci"
+            (back)="backToEditor()">
+        </app-menu-preview>
+    }
 
-    <div class="editor-card">
+    @if(currentView === 'home'){
 
-        <button class="back" style="padding:0;" (click)="goBack()">
-           <i class="bi bi-chevron-left"></i>
+    <nav class="bottom-nav">
+
+        <button class="active">
+            <i class="bi bi-house"></i>
+            <span>Home</span>
         </button>
-        <h1 style="font-weight: bold; margin-bottom: 10px;">Menu del Giorno</h1>
-        <p class="subtitle">
-            Scrivi un piatto e poi vai a capo. Ogni riga diventerà un punto del menu.
-        </p>
 
-        <div
-            class="counter"
-            [class.limit]="getTotalRows() > 16">
+        <button style="color: rgb(219, 218, 218);">
+            <i class="bi bi-clock-history"></i>
+            <span>Storico Menu</span>
+        </button>
 
-            Righe {{ getTotalRows() }} di 16 utilizzate
+    </nav>
 
-        </div>
-
-        <div class="field">
-            <label>Primi</label>
-            <textarea
-                rows="6"
-                [(ngModel)]="primi"
-                placeholder="Scrivi i primi qui...">
-            </textarea>
-        </div>
-        <div class="field">
-            <label>Secondi</label>
-            <textarea
-                rows="6"
-                [(ngModel)]="secondi"
-                placeholder="Scrivi i secondi qui...">
-            </textarea>
-        </div>
-        <div class="field">
-            <label>Contorni</label>
-            <textarea
-                rows="6"
-                [(ngModel)]="contorni"
-                placeholder="Scrivi i contorni qui...">
-            </textarea>
-        </div>
-        <div class="field checkbox-field">
-            <div class="switch">
-
-                <label for="dolci" class="switch-label">
-                    Dolci
-                </label>
-
-                <input
-                    id="dolci"
-                    type="checkbox"
-                    [(ngModel)]="mostraDolci">
-
-                <label for="dolci" class="toggle"></label>
-
-            </div>
-        </div>
-
-        @if(mostraDolci){
-        <div class="field">
-            <textarea
-                rows="5"
-                [(ngModel)]="dolci"
-                placeholder="Scrivi i dolci qui...">
-            </textarea>
-
-        </div>
-        }
-
-      <div class="button-row">
-        <button class="generate" (click)="showPreview()"><i class="bi bi-eye"></i> Preview</button>
-      </div>
-
-    </div>
-
-</div>
-
-}
-
-@else if(currentView === 'preview') {
-    <app-menu-preview
-        [primi]="primi"
-        [secondi]="secondi"
-        [contorni]="contorni"
-        [dolci]="dolci"
-        [mostraDolci]="mostraDolci"
-        (back)="backToEditor()">
-    </app-menu-preview>
-}
-
-@if(currentView === 'home'){
-
-<nav class="bottom-nav">
-
-    <button class="active">
-        <i class="bi bi-house"></i>
-        <span>Home</span>
-    </button>
-
-    <button style="color: rgb(219, 218, 218);">
-        <i class="bi bi-clock-history"></i>
-        <span>Storico Menu</span>
-    </button>
-
-</nav>
-
-}
+    }
