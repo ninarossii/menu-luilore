@@ -11,7 +11,11 @@ import { ExportService } from '../../services/export';
 })
 export class MenuPreviewComponent implements OnInit {
 
-  constructor(private exportService: ExportService) {}
+  constructor(private exportService: ExportService) {
+
+    this.changeBackground();
+
+  }
 
   ngOnInit(): void {
     this.randomBackground();
@@ -34,17 +38,29 @@ export class MenuPreviewComponent implements OnInit {
   background = '';
 
   backgrounds = [
-    'immagini/sfondo-1.png',
-    'immagini/sfondo-2.png',
     'immagini/sfondo-3.png',
-    'immagini/sfondo-4.png',
-    'immagini/sfondo-5.png',
-    'immagini/sfondo-7.png',
-    'immagini/sfondo-8.png',
     'immagini/sfondo-10.png',
-    'immagini/sfondo-11.png'
+    'immagini/sfondo-12.png',
+    'immagini/sfondo-13.png',
+    'immagini/sfondo-14.png'
     
   ];
+
+  changeBackground() {
+
+  let nuovoSfondo = this.background;
+
+  while (nuovoSfondo === this.background) {
+
+    const index = Math.floor(Math.random() * this.backgrounds.length);
+
+    nuovoSfondo = this.backgrounds[index];
+
+  }
+
+  this.background = nuovoSfondo;
+
+}
 
   oggi = this.getDataOggi();
 
