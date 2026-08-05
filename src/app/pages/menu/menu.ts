@@ -62,4 +62,20 @@ countRows(text: string): number {
     .split('\n')
     .filter(riga => riga.trim() !== '').length;
 }
+
+oggi = this.getDataOggi();
+
+
+  getDataOggi(): string {
+
+    const oggi = new Date();
+
+    return oggi.toLocaleDateString('it-IT', {
+      weekday: 'long',
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    });
+
+  }
 }

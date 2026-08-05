@@ -60,7 +60,7 @@ export class MenuPreviewComponent implements OnInit {
 
   this.background = nuovoSfondo;
 
-}
+ }
 
   oggi = this.getDataOggi();
 
@@ -82,7 +82,7 @@ export class MenuPreviewComponent implements OnInit {
 
   this.background = this.backgrounds[index];
 
-}
+ }
 
   goBack() {
     this.back.emit();

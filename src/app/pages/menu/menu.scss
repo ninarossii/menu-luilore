@@ -17,7 +17,7 @@ body{
 .container{
     max-width:1200px;
     margin:auto;
-    padding:40px 20px;
+    padding:40px 0px;
     padding-bottom:120px;
 }
 h1{
@@ -59,7 +59,7 @@ h1{
 
 .card-content{
     padding:30px;
-    padding-top:0px;
+    
     text-align:center;
 }
 
@@ -190,6 +190,59 @@ textarea:focus{
     display:flex;
     gap:10px;
     align-items:center;
+}
+.button-row button{
+    width:auto;
+    flex:1;
+}
+.small-button-row{
+    display:flex;
+    gap:18px;
+    justify-content:flex-start;
+    margin-top:20px;
+    padding: 0 20px;
+    overflow-x:auto;
+    padding-bottom:6px;
+    scroll-behavior:smooth;
+    -webkit-overflow-scrolling:touch;
+
+}
+.small-button-row::-webkit-scrollbar{
+    display:none;
+}
+.small-button-row{
+    -ms-overflow-style:none;
+    scrollbar-width:none;
+}
+.icon-button-wrapper{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+    min-width:110px;
+}
+.icon-caption{
+    font-size:17px;
+    color:#333;
+    font-weight:600;
+    white-space:nowrap;
+}
+.icon-button{
+    width:110px;
+    height:110px;
+    border-radius:50%;
+    padding:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#fff;
+    box-shadow:0 8px 16px rgba(0, 0, 0, 0.12);
+}
+.icon-button img{
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    object-fit:contain;
 }
 .editor-card{
     width:min(95vw,600px);

@@ -1,60 +1,70 @@
 @if(currentView === 'home') {
 
-<div class="container">
-    <h5 style="color: #000000; margin-bottom: 0;"> Buongiorno, Antonello! </h5>
-    <h1 style="font-weight: bold;">Scegli il menu</h1>
-    <div class="search">
+    <div class="container">
 
+        <div style="margin:25px">
+            <h5 style="color: #000000; margin-bottom: 0;"> Buongiorno, Antonello! </h5>
+            <h1 style="font-weight: bold;">Scegli il menu</h1>
 
-        <i class="bi bi-search"></i>
-        <input type="text" placeholder="Cerca qui...">      
-        
-    </div>
-        <div class="grid">
-            <div class="card active">
-
-                <div class="card-image">
-                    <img src="/immagini/giorno.jpg" alt="Menu del Giorno">
-                </div>
-
-                <div class="card-content">
-
-                    <h2>Menu del Giorno</h2>
-
-                    <p>Template del menu quotidiano.</p>
-
-                    <button (click)="openMenu()">
-                        Apri
-                    </button>
-
-                </div>
-
-            </div>
-            <!--<div class="card disabled">
-                <img src="/immagini/pesce.jpg" alt="Pasta" />
-                <h2>Menu di Ferragosto</h2>
-                <p>Template del menu di Ferragosto.</p>
-                <button disabled>Coming soon</button>
-            </div> 
-
-            <div class="card disabled">
-                <div class="emoji">🐣</div>
-                <h2>Menu di Pasqua</h2>
-                <p>Coming soon</p>
-                <button disabled>Coming soon</button>
+            <div class="search">
+                <i class="bi bi-search"></i>
+                <input type="text" placeholder="Cerca qui...">      
             </div>
 
-            <div class="card disabled">
-                <div class="emoji">❤️</div>
-                <h2>Menu Capodanno</h2>
-                <p>Coming soon</p>
-                <button disabled>Coming soon</button>
-            </div> -->
-         </div>
-    </div>
-    }
+            <h3 style="margin-top: 40px; margin-bottom: 20px; font-weight: bold;">Menu </h3>
 
-    @else if (currentView === 'editor') {
+            <div class="grid">
+                <div class="card active">
+                    <div class="card-content">
+                        <h4 class="date text-start fw-bold">{{ oggi }}</h4>
+                        <p class="date text-start">{{ oggi }}</p>
+
+                        <div class="button-row">
+                            <button (click)="openMenu()">
+                                Modifica
+                            </button>
+                            <button (click)="openMenu()">
+                                Vista QR Code 
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+        <h3 style="margin-top: 50px; margin: 20px; font-weight: bold;">Template</h3>
+
+        <div class="small-button-row">
+            <div class="icon-button-wrapper">
+                <button class="icon-button" type="button">
+                        <img src="immagini/icon0.png" alt="Icona Dolci">
+                </button>
+                <span class="icon-caption">Storie</span>
+            </div>
+            <div class="icon-button-wrapper">
+                <button class="icon-button" type="button">
+                    <img src="immagini/icon1.png" alt="Icona Dolci">
+                </button>
+                <span class="icon-caption">Dolci</span>
+            </div>
+            <div class="icon-button-wrapper">
+                <button class="icon-button" type="button">
+                    <img src="immagini/icon2.png" alt="Icona Post">
+                </button>
+                <span class="icon-caption">Post</span>
+            </div>
+            <div class="icon-button-wrapper">
+                <button class="icon-button" type="button">
+                    <img src="immagini/icon3.png" alt="Icona Prezzi">
+                </button>
+                <span class="icon-caption">Prezzi</span>
+            </div>
+        </div>
+           
+    </div>
+}
+
+@else if (currentView === 'editor') {
 
     <div class="editor-page">
 
@@ -134,11 +144,11 @@
 
         </div>
 
-</div>
+    </div>
 
     }
 
-    @else if(currentView === 'preview') {
+    <!-- @else if(currentView === 'preview') {
         <app-menu-preview
             [primi]="primi"
             [secondi]="secondi"
@@ -150,19 +160,15 @@
     }
 
     @if(currentView === 'home'){
-
     <nav class="bottom-nav">
-
         <button class="active">
             <i class="bi bi-house"></i>
             <span>Home</span>
         </button>
-
         <button style="color: rgb(219, 218, 218);">
             <i class="bi bi-clock-history"></i>
             <span>Storico Menu</span>
         </button>
-
     </nav>
 
-    }
+} -->
