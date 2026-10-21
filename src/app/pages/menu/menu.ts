@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';   
 import { MenuPreviewComponent } from '../../components/menu-preview/menu-preview';
 
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [FormsModule, MenuPreviewComponent],
+  imports: [FormsModule, RouterLink, MenuPreviewComponent],
   templateUrl: './menu.html',
   styleUrl: './menu.scss'
 })
@@ -18,8 +19,12 @@ export class MenuComponent {
   secondi = '';
   contorni = '';
   dolci = '';
+  note = '';
+  prezzi = '';
 
   mostraDolci = false;
+  mostraNote = false;
+  mostraPrezzi = false;
 
   openMenu() {
     this.currentView = 'editor';
@@ -47,6 +52,10 @@ getTotalRows(): number {
 
   if (this.mostraDolci) {
     totale += this.countRows(this.dolci);
+  }
+
+   if (this.mostraNote) {
+    totale += this.countRows(this.note);
   }
 
   return totale;

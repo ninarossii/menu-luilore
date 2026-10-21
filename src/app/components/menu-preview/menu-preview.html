@@ -5,20 +5,15 @@
         <div class="button-row">
 
             <button class="back-button" (click)="goBack()">
-
                <i class="bi bi-arrow-left"></i> Torna all'editor
-
             </button>
 
             <button class="back-button" (click)="changeBackground()">
-            <i class="bi bi-arrow-repeat"></i>
-                Cambia sfondo
+            <i class="bi bi-arrow-repeat"></i> Cambia sfondo
             </button>
 
             <button class="back-button" (click)="downloadPng()">
-
                <i class="bi bi-download"></i> Scarica PNG
-
             </button>
 
         </div>
@@ -26,98 +21,65 @@
     </div>
 
     <div id="menu-preview" class="paper"  [style.background-image]="'url(' + background + ')'">
+    <img src="immagini/logo-quadrato.png" alt="Logo Luilore" class="menu-logo">
 
         <div class="content">
-
             <h1>Menu</h1>
-
             <p class="date">{{ oggi }}</p>
-
             <div class="section">
-
                 <h2>Primi</h2>
-
                 <ul>
-
                     @for(piatto of primi.split('\n'); track piatto){
-
                         @if(piatto.trim() !== ''){
-
                             <li>{{ piatto }}</li>
-
                         }
-
                     }
-
                 </ul>
-
             </div>
 
             <div class="section">
-
                 <h2>Secondi</h2>
-
                 <ul>
-
                     @for(piatto of secondi.split('\n'); track piatto){
-
                         @if(piatto.trim() !== ''){
-
                             <li>{{ piatto }}</li>
-
                         }
-
                     }
-
                 </ul>
-
             </div>
 
             <div class="section">
-
                 <h2>Contorni</h2>
-
                 <ul>
-
                     @for(piatto of contorni.split('\n'); track piatto){
-
                         @if(piatto.trim() !== ''){
-
                             <li>{{ piatto }}</li>
-
                         }
-
                     }
-
                 </ul>
 
                 @if(mostraDolci){
-
                 <div class="section">
-
                     <h2>Dolci</h2>
-
                     <ul>
-
                         @for(piatto of dolci.split('\n'); track piatto){
-
                             @if(piatto.trim() !== ''){
-
                                 <li>{{ piatto }}</li>
-
                             }
-
                         }
-
                     </ul>
-
                 </div>
-
                 }
+            </div>
 
+            <div class="container-note">
+                @if(mostraNote){
+                    <div class="section-note fs-4">
+                        {{ nota }}
+                    </div>
+                }
             </div>
             
-
         </div>
 
     </div>

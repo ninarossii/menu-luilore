@@ -3,77 +3,68 @@
     <div class="container">
 
         <div style="margin:25px">
-            <h5 style="color: #000000; margin-bottom: 0;"> Buongiorno, Antonello! </h5>
-            <h1 style="font-weight: bold;">Scegli il menu</h1>
+            <h2 style="color: #000000; margin-bottom: 1cap; font-style: bold;"> Ciao Antonello! </h2>
+            <!-- <h5 style="margin-bottom: 15px;">Cosa hai cucinato oggi?</h5> -->
 
             <div class="search">
                 <i class="bi bi-search"></i>
                 <input type="text" placeholder="Cerca qui...">      
             </div>
 
-            <h3 style="margin-top: 40px; margin-bottom: 20px; font-weight: bold;">Menu </h3>
+            <!-- <h3 style="margin-top: 40px; margin-bottom: 20px; font-weight: bold;">Menu </h3> -->
 
             <div class="grid">
                 <div class="card active">
                     <div class="card-content">
-                        <h4 class="date text-start fw-bold">{{ oggi }}</h4>
+                        <div class="menu-header">
+                            <h4 class="date text-start fw-bold">Menu</h4>
+
+                            <!-- <span class="status-online">
+                                <span class="online-dot"></span>
+                                Online
+                            </span> -->
+                        </div>
+
                         <p class="date text-start">{{ oggi }}</p>
 
                         <div class="button-row">
                             <button (click)="openMenu()">
                                 Modifica
                             </button>
-                            <button (click)="openMenu()">
-                                Vista QR Code 
-                            </button>
+
+                            <!-- <button>
+                                Vista QR Code
+                            </button> -->
                         </div>
                     </div>
                 </div>
+                <!-- <div class="card active">
+                    <div class="card-content">
+                        <div class="menu-header">
+                            <h4 class="date text-start fw-bold">Fabio</h4>
+                        </div>
+
+                       
+                    </div>
+                </div> -->
             </div>
         </div> 
 
-        <h3 style="margin-top: 50px; margin: 20px; font-weight: bold;">Template</h3>
-
-        <div class="small-button-row">
-            <div class="icon-button-wrapper">
-                <button class="icon-button" type="button">
-                        <img src="immagini/icon0.png" alt="Icona Dolci">
-                </button>
-                <span class="icon-caption">Storie</span>
-            </div>
-            <div class="icon-button-wrapper">
-                <button class="icon-button" type="button">
-                    <img src="immagini/icon1.png" alt="Icona Dolci">
-                </button>
-                <span class="icon-caption">Dolci</span>
-            </div>
-            <div class="icon-button-wrapper">
-                <button class="icon-button" type="button">
-                    <img src="immagini/icon2.png" alt="Icona Post">
-                </button>
-                <span class="icon-caption">Post</span>
-            </div>
-            <div class="icon-button-wrapper">
-                <button class="icon-button" type="button">
-                    <img src="immagini/icon3.png" alt="Icona Prezzi">
-                </button>
-                <span class="icon-caption">Prezzi</span>
-            </div>
-        </div>
-           
     </div>
 }
 
 @else if (currentView === 'editor') {
 
     <div class="editor-page">
-
         <div class="editor-card">
-
             <button class="back" style="padding:0;" (click)="goBack()">
-            <i class="bi bi-chevron-left"></i>
+                <i class="bi bi-chevron-left"></i>
             </button>
-            <h1 style="font-weight: bold; margin-bottom: 10px;">Menu del Giorno</h1>
+
+            <h1 style="font-weight: bold; margin-bottom: 10px;">
+                Menu del Giorno
+            </h1>
+
             <p class="subtitle">
                 Scrivi un piatto e poi vai a capo. Ogni riga diventerà un punto del menu.
             </p>
@@ -81,36 +72,150 @@
             <div
                 class="counter"
                 [class.limit]="getTotalRows() > 20">
-
                 Righe {{ getTotalRows() }} di 20 utilizzate
+            </div>
+
+            <!-- ================= PRIMI ================= -->
+
+            <div class="price-section price-section-primi">
+
+                <div class="field">
+
+                    <label>Primi</label>
+
+                    <textarea
+                        rows="6"
+                        [(ngModel)]="primi"
+                        placeholder="Scrivi i primi qui...">
+                    </textarea>
+
+                </div>
+
+                @if(mostraPrezzi){
+
+                    <div class="field">
+                        <label>Prezzi primi</label>
+                        <textarea
+                            rows="5"
+                            [(ngModel)]="prezzi"
+                            placeholder="Scrivi i prezzi qui...">
+                        </textarea>
+                    </div>
+                }
+            </div>
+
+
+            <!-- ================= SECONDI ================= -->
+
+            <div class="price-section price-section-secondi">
+
+                <div class="field">
+
+                    <label>Secondi</label>
+
+                    <textarea
+                        rows="6"
+                        [(ngModel)]="secondi"
+                        placeholder="Scrivi i secondi qui...">
+                    </textarea>
+
+                </div>
+
+                @if(mostraPrezzi){
+
+                    <div class="field">
+
+                        <label>Prezzi secondi</label>
+
+                        <textarea
+                            rows="5"
+                            [(ngModel)]="prezzi"
+                            placeholder="Scrivi i prezzi qui...">
+                        </textarea>
+
+                    </div>
+
+                }
 
             </div>
 
-            <div class="field">
-                <label>Primi</label>
-                <textarea
-                    rows="6"
-                    [(ngModel)]="primi"
-                    placeholder="Scrivi i primi qui...">
-                </textarea>
+
+            <!-- ================= CONTORNI ================= -->
+
+            <div class="price-section price-section-contorni">
+
+                <div class="field">
+
+                    <label>Contorni</label>
+
+                    <textarea
+                        rows="6"
+                        [(ngModel)]="contorni"
+                        placeholder="Scrivi i contorni qui...">
+                    </textarea>
+
+                </div>
+
+                @if(mostraPrezzi){
+
+                    <div class="field">
+
+                        <label>Prezzi contorni</label>
+
+                        <textarea
+                            rows="5"
+                            [(ngModel)]="prezzi"
+                            placeholder="Scrivi i prezzi qui...">
+                        </textarea>
+
+                    </div>
+
+                }
+
             </div>
-            <div class="field">
-                <label>Secondi</label>
-                <textarea
-                    rows="6"
-                    [(ngModel)]="secondi"
-                    placeholder="Scrivi i secondi qui...">
-                </textarea>
-            </div>
-            <div class="field">
-                <label>Contorni</label>
-                <textarea
-                    rows="6"
-                    [(ngModel)]="contorni"
-                    placeholder="Scrivi i contorni qui...">
-                </textarea>
-            </div>
-            <div class="field checkbox-field">
+
+
+            <!-- ================= DOLCI ================= -->
+
+
+            @if(mostraDolci){
+
+                <div class="price-section price-section-dolci">
+
+                    <div class="field">
+
+                        <label>Dolci</label>
+
+                        <textarea
+                            rows="5"
+                            [(ngModel)]="dolci"
+                            placeholder="Scrivi i dolci qui...">
+                        </textarea>
+
+                    </div>
+
+                    @if(mostraPrezzi){
+
+                        <div class="field">
+
+                            <label>Prezzi dolci</label>
+
+                            <textarea
+                                rows="5"
+                                [(ngModel)]="prezzi"
+                                placeholder="Scrivi i prezzi qui...">
+                            </textarea>
+
+                        </div>
+
+                    }
+
+                </div>
+
+            }
+
+             <div class="field checkbox-field">
+
                 <div class="switch">
 
                     <label for="dolci" class="switch-label">
@@ -122,53 +227,144 @@
                         type="checkbox"
                         [(ngModel)]="mostraDolci">
 
-                    <label for="dolci" class="toggle"></label>
+                    <label
+                        for="dolci"
+                        class="toggle">
+                    </label>
 
                 </div>
-            </div>
-
-            @if(mostraDolci){
-            <div class="field">
-                <textarea
-                    rows="5"
-                    [(ngModel)]="dolci"
-                    placeholder="Scrivi i dolci qui...">
-                </textarea>
 
             </div>
+
+
+
+            <!-- ================= NOTE ================= -->
+
+            <!-- <div class="field checkbox-field">
+
+                <div class="switch">
+
+                    <label for="note" class="switch-label">
+                        Note
+                    </label>
+
+                    <input
+                        id="note"
+                        type="checkbox"
+                        [(ngModel)]="mostraNote">
+
+                    <label
+                        for="note"
+                        class="toggle">
+                    </label>
+
+                </div>
+
+            </div> -->
+
+
+            @if(mostraNote){
+
+                <div class="field">
+
+                    <textarea
+                        rows="5"
+                        [(ngModel)]="note"
+                        placeholder="Scrivi le note qui...">
+                    </textarea>
+
+                </div>
+
             }
 
-        <div class="button-row">
-            <button class="generate" (click)="showPreview()"><i class="bi bi-eye"></i> Preview</button>
-        </div>
+
+            <!-- ================= PREZZI ================= -->
+<!-- 
+            <div class="field checkbox-field">
+
+                <div class="switch">
+
+                    <label for="prezzi" class="switch-label">
+                        Prezzi
+                    </label>
+
+                    <input
+                        id="prezzi"
+                        type="checkbox"
+                        [(ngModel)]="mostraPrezzi">
+
+                    <label
+                        for="prezzi"
+                        class="toggle">
+                    </label>
+
+                </div>
+
+            </div> -->
+
+
+            <!-- ================= PREVIEW ================= -->
+
+            <div class="button-row">
+
+                <button
+                    class="generate"
+                    (click)="showPreview()">
+
+                    <i class="bi bi-eye"></i>
+                    Preview
+
+                </button>
+
+            </div>
 
         </div>
 
     </div>
 
-    }
+}
 
-    <!-- @else if(currentView === 'preview') {
-        <app-menu-preview
-            [primi]="primi"
-            [secondi]="secondi"
-            [contorni]="contorni"
-            [dolci]="dolci"
-            [mostraDolci]="mostraDolci"
-            (back)="backToEditor()">
-        </app-menu-preview>
-    }
+@else if(currentView === 'preview') {
 
-    @if(currentView === 'home'){
+    <app-menu-preview
+        [primi]="primi"
+        [secondi]="secondi"
+        [contorni]="contorni"
+        [dolci]="dolci"
+        [mostraDolci]="mostraDolci"
+        [mostraNote]="mostraNote"
+        [nota]="note"
+        (back)="backToEditor()">
+    </app-menu-preview>
+
+}
+
+
+@if(currentView === 'home'){
+
     <nav class="bottom-nav">
+
         <button class="active">
+
             <i class="bi bi-house"></i>
             <span>Home</span>
+
         </button>
+
         <button style="color: rgb(219, 218, 218);">
+
             <i class="bi bi-clock-history"></i>
-            <span>Storico Menu</span>
+            <span>Calendario</span>
+
         </button>
+
+        <button class="btn-home" routerLink="/home" style="color: rgb(219, 218, 218);">
+
+            <i class="bi bi-box-arrow-left"></i>
+            <span>Esci</span>
+
+        </button>
+
     </nav>
 
-} -->
+}

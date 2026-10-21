@@ -33,16 +33,18 @@ export class MenuPreviewComponent implements OnInit {
 
   @Input() mostraDolci = false;
 
+  @Input() mostraNote = false;
+
+  @Input() nota = '';
+
   private lastIndex = -1;
 
   background = '';
 
   backgrounds = [
-    'immagini/sfondo-3.png',
-    'immagini/sfondo-10.png',
-    'immagini/sfondo-12.png',
-    'immagini/sfondo-13.png',
-    'immagini/sfondo-14.png'
+    'immagini/autunnale-1.png',
+    'immagini/autunnale-2.png',
+    'immagini/autunnale-3.png'
     
   ];
 

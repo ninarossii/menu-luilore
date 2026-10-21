@@ -418,3 +418,58 @@ textarea{
     transform:translateY(-50%);
     font-size:26px;
 }
+
+.price-section {
+    border-left: 3px solid;
+    padding-left: 18px;
+    margin-bottom: 25px;
+    border-radius: 4px;
+}
+
+.price-section-primi {
+    border-left-color: #e0807d;
+}
+
+.price-section-secondi {
+    border-left-color: #5979a5;
+}
+
+.price-section-contorni {
+    border-left-color: #68ac6a;
+}
+
+.price-section-dolci {
+    border-left-color: #a882b9;
+}
+
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.menu-header h4 {
+    margin-bottom: 0;
+}
+
+.status-online {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background-color: #e5f7eb;
+    color: #218447;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.online-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #28a745;
+    box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.12);
+}

@@ -1,0 +1,532 @@
+<header class="site-header">
+  <div class="header-container">
+
+    <!-- Logo -->
+    <a class="logo" routerLink="/" aria-label="Luilore - Home">
+      <img src="immagini/logo.png" alt="Luilore">
+    </a>
+
+    <!-- Navigazione desktop -->
+    <nav class="desktop-nav menu-descrizione" aria-label="Navigazione principale" >
+      <a href="#menu" (click)="scrollToSection($event, 'menu')">MENU</a>
+      <!-- <a href="#cucina">LA NOSTRA CUCINA</a> -->
+      <a href="#recensioni" (click)="scrollToSection($event, 'recensioni')">RECENSIONI</a>
+      <a href="#contatti" (click)="scrollToSection($event, 'contatti')">CONTATTI</a>
+    </nav>
+
+
+    <!-- Login desktop -->
+      <div class="header-actions">
+        <button class="login-button menu-descrizione " type="button">
+          LOGIN
+        </button>
+      </div>
+
+      <!-- Hamburger mobile -->
+       
+      <button
+        class="hamburger"
+        type="button"
+        [class.active]="menuAperto"
+        [attr.aria-label]="menuAperto ? 'Chiudi il menu' : 'Apri il menu'"
+        aria-controls="mobile-navigation"
+        [attr.aria-expanded]="menuAperto"
+        (click)="menuAperto = !menuAperto">
+
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+
+    </div>
+
+    <!-- Navigazione mobile -->
+
+    
+
+    <nav
+    
+      id="mobile-navigation"
+      class="mobile-nav"
+      [class.open]="menuAperto"
+      aria-label="Navigazione mobile">
+      
+<!-- 
+      <div class="mobile-nav-toolbar">
+      <img src="immagini/logo.png" alt="Logo Luilore" class="mobile-nav-logo">
+
+      <button type="button" class="mobile-nav-login">
+        Log in
+      </button>
+    </div> -->
+
+      <a href="#menu" (click)="scrollToSection($event, 'menu')">MENU</a>
+      <a href="#cucina" (click)="menuAperto = false">LA NOSTRA CUCINA</a>
+      <a href="#recensioni" (click)="scrollToSection($event, 'recensioni')">RECENSIONI</a>
+      <a href="#contatti" (click)="scrollToSection($event, 'contatti')">CONTATTI</a>
+      <button type="button" class="mobile-login" (click)="menuAperto = false">
+        Login
+      </button>
+
+    </nav>
+</header>
+
+<main>
+  <!-- Sfondo video e contenuti della home verranno sviluppati qui -->
+  <section class="hero" id="top">
+    <video
+      class="hero-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      aria-hidden="true">
+      <source src="/video/home.mp4" type="video/mp4">
+    </video>
+
+  <div class="hero-overlay"></div>
+
+<div class="hero-content">
+  <div class="hero-text">
+    <h1 style="margin-bottom: 5px">
+      <span style="color: #d1b26f;"> Luilore</span> <br>
+       la cucina italiana <br>
+    </h1>
+
+    <p class=" hero-subtitle menu-descrizione mb-4">
+    Una storia di sapori cilentani
+    </p>
+    
+    <a href="#menu" (click)="scrollToSection($event, 'menu')" class="hero-button menu-descrizione">
+    VEDI MENU
+    </a>
+
+  </div>
+</div>
+</section>
+
+<section class="daily-menu-intro" id="menu-intro">
+  <div class="daily-menu-inner">
+
+    <div class="daily-menu-eyebrow">
+      <span class="decorative-line"></span>
+      <span>{{ oggi }}</span>
+      <span class="decorative-line"></span>
+    </div>
+
+    <h2>Il menu di oggi</h2>
+
+    <p>
+      nuovi piatti ogni giorno. 
+    </p>
+
+  </div>
+</section>
+
+
+
+<section class="daily-menu-list" id="menu">
+
+  <!-- PRIMI: immagine a sinistra -->
+  <article class="dish-category">
+    <div class="dish-photo">
+      <img src="immagini/primi.svg" alt="Primi piatti italiani">
+    </div>
+
+    <div class="dish-content">
+      <h2 class="menu-title">Primi</h2>
+      <span class="title-decoration"></span>
+
+      <ul class="dish-list">
+        <li>
+          <div class="dish-info">
+            <span class="dish-name">Spaghetti alle vongole</span>
+            <span class="dish-translation">Spaghetti with clams</span>
+          </div>
+          <span class="dish-price">€ 14,00</span>
+        </li>
+        <li>
+          <div class="dish-info">
+            <span class="dish-name">Risotto ai funghi porcini</span>
+            <span class="dish-translation">Porcini mushroom risotto</span>
+          </div>
+          <span class="dish-price">€ 13,00</span>
+        </li>
+        <li>
+          <div class="dish-info">
+            <span class="dish-name">Paccheri al pomodoro fresco</span>
+            <span class="dish-translation">Paccheri with fresh tomato sauce</span>
+          </div>
+          <span class="dish-price">€ 11,00</span>
+        </li>
+        <li>
+          <div class="dish-info">
+            <span class="dish-name">Tagliatelle al ragù</span>
+            <span class="dish-translation">Tagliatelle with meat ragù</span>
+          </div>
+          <span class="dish-price">€ 12,00</span>
+        </li>
+        <li>
+          <div class="dish-info">
+            <span class="dish-name">Linguine allo scoglio</span>
+            <span class="dish-translation">Linguine with mixed seafood</span>
+          </div>
+          <span class="dish-price">€ 16,00</span>
+        </li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- SECONDI: immagine a destra -->
+  <article class="dish-category reverse">
+    <div class="dish-photo">
+      <img src="immagini/secondi.svg" alt="Secondi piatti italiani">
+    </div>
+
+    <div class="dish-content">
+      <h2 class="menu-title">Secondi</h2>
+      <span class="title-decoration"></span>
+
+      <ul class="dish-list">
+        <li>
+          <div class="dish-info">
+            <span class="dish-name">Branzino al forno con erbe aromatiche</span>
+            <span class="dish-translation">Oven-baked sea bass with aromatic herbs</span>
+          </div>
+          <span class="dish-price">€ 18,00</span>
+        </li>
+        <li>
+          <div class="dish-info">
+            <span class="dish-name">Tagliata di manzo al rosmarino</span>
+            <span class="dish-translation">Sliced beef with rosemary</span>
+          </div>
+          <span class="dish-price">€ 20,00</span>
+        </li>
+        <li>
+          <div class="dish-info">
+            <span class="dish-name">Frittura mista di pesce</span>
+            <span class="dish-translation">Mixed fried seafood</span>
+          </div>
+          <span class="dish-price">€ 17,00</span>
+        </li>
+        <li>
+          <div class="dish-info">
+            <span class="dish-name">Pollo al limone</span>
+            <span class="dish-translation">Lemon chicken</span>
+          </div>
+          <span class="dish-price">€ 14,00</span>
+        </li>
+        <li>
+          <div class="dish-info">
+            <span class="dish-name">Orata alla griglia</span>
+            <span class="dish-translation">Grilled sea bream</span>
+          </div>
+          <span class="dish-price">€ 18,00</span>
+        </li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- CONTORNI: immagine a sinistra -->
+  <article class="dish-category">
+    <div class="dish-photo">
+      <img src="immagini/contorni.svg" alt="Contorni italiani">
+    </div>
+
+    <div class="dish-content">
+      <h2 class="menu-title">Contorni</h2>
+      <span class="title-decoration"></span>
+
+      <ul class="dish-list">
+        <li>
+          <div class="dish-info">
+            <span class="dish-name">Verdure grigliate</span>
+            <span class="dish-translation">Grilled vegetables</span>
+          </div>
+          <span class="dish-price">€ 6,00</span>
+        </li>
+        <li>
+          <div class="dish-info">
+            <span class="dish-name">Patate al forno</span>
+            <span class="dish-translation">Roasted potatoes</span>
+          </div>
+          <span class="dish-price">€ 5,00</span>
+        </li>
+        <li>
+          <div class="dish-info">
+            <span class="dish-name">Insalata mista</span>
+            <span class="dish-translation">Mixed salad</span>
+          </div>
+          <span class="dish-price">€ 5,00</span>
+        </li>
+        <li>
+          <div class="dish-info">
+            <span class="dish-name">Zucchine trifolate</span>
+            <span class="dish-translation">Sautéed zucchini</span>
+          </div>
+          <span class="dish-price">€ 6,00</span>
+        </li>
+        <li>
+          <div class="dish-info">
+            <span class="dish-name">Spinaci saltati in padella</span>
+            <span class="dish-translation">Pan-sautéed spinach</span>
+          </div>
+          <span class="dish-price">€ 6,00</span>
+        </li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- DOLCI: immagine a destra -->
+  <article class="dish-category reverse">
+    <div class="dish-photo">
+      <img src="immagini/dolci.svg" alt="Dolci della casa">
+    </div>
+
+    <div class="dish-content">
+      <h2 class="menu-title">Dolci</h2>
+      <span class="title-decoration"></span>
+
+      <ul class="dish-list">
+        <li>
+          <div class="dish-info">
+            <span class="dish-name">Tiramisù fatto in casa</span>
+            <span class="dish-translation">Homemade tiramisu</span>
+          </div>
+          <span class="dish-price">€ 6,00</span>
+        </li>
+        <li>
+          <div class="dish-info">
+            <span class="dish-name">Panna cotta ai frutti di bosco</span>
+            <span class="dish-translation">Panna cotta with forest berries</span>
+          </div>
+          <span class="dish-price">€ 6,00</span>
+        </li>
+        <li>
+          <div class="dish-info">
+            <span class="dish-name">Cheesecake al limone</span>
+            <span class="dish-translation">Lemon cheesecake</span>
+          </div>
+          <span class="dish-price">€ 6,00</span>
+        </li>
+        <li>
+          <div class="dish-info">
+            <span class="dish-name">Crostata della casa</span>
+            <span class="dish-translation">Homemade fruit tart</span>
+          </div>
+          <span class="dish-price">€ 5,00</span>
+        </li>
+        <li>
+          <div class="dish-info">
+            <span class="dish-name">Salame al cioccolato</span>
+            <span class="dish-translation">Chocolate biscuit salami</span>
+          </div>
+          <span class="dish-price">€ 5,00</span>
+        </li>
+      </ul>
+    </div>
+  </article>
+
+</section>
+
+<section class="daily-menu-intro" id="recensioni">
+  <div class="daily-menu-inner">
+
+    <div class="daily-menu-eyebrow">
+      <span class="decorative-line"></span>
+      <span>Cosa dicono di noi</span>
+      <span class="decorative-line"></span>
+    </div>
+
+    <h2>Recensioni</h2>
+
+    <p>
+      Leggi le recensioni dei nostri clienti su Google e scopri cosa pensano della nostra cucina e del nostro servizio <a href="https://www.google.it/maps/place/Luilor%C3%A9+GASTRONOMIA/@40.0750311,15.6242564,17z/data=!3m2!4b1!5s0x133ed0428b3cc475:0x858bf1335567b462!4m6!3m5!1s0x133ed13ab40e0221:0xd6eac4b8036515e6!8m2!3d40.0750311!4d15.6268313!16s%2Fg%2F11s243xk_1?entry=ttu&g_ep=EgoyMDI2MTAxOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">(clicca qui)</a>.
+    </p>
+
+  </div>
+</section>
+
+
+<section class="reviews-section">
+
+  <div class="reviews-slider">
+
+    <button
+      class="review-arrow"
+      type="button"
+      aria-label="Recensioni precedenti"
+      (click)="prevReview()">
+      &#10094;
+    </button>
+
+    <div class="reviews-track">
+      <article
+        class="review-card"
+        *ngFor="let review of visibleReviews">
+
+        <div class="review-stars" aria-label="5 stelle">
+          ★★★★★
+        </div>
+
+        <p class="review-text">“{{ review.text }}”</p>
+
+        <div class="review-author">
+          <span class="review-avatar">
+            {{ review.author.charAt(0).toUpperCase() }}
+          </span>
+
+          <div class="review-author-info">
+            <span class="review-name">{{ review.author }}</span>
+            <span class="review-source">Recensione Google</span>
+          </div>
+        </div>
+
+      </article>
+    </div>
+
+    <button
+      class="review-arrow"
+      type="button"
+      aria-label="Recensioni successive"
+      (click)="nextReview()">
+      &#10095;
+    </button>
+
+  </div>
+
+  <div class="reviews-dots">
+    <button
+      *ngFor="let review of reviews; let i = index"
+      type="button"
+      [class.active]="i === currentReview"
+      [attr.aria-label]="'Vai alla recensione ' + (i + 1)"
+      (click)="goToReview(i)">
+    </button>
+  </div>
+
+</section>
+
+
+<section class="contacts-section" id="contatti">
+  <div class="contacts-container">
+
+    <!-- Quadrato con i contatti -->
+    <div class="contacts-card">
+      <span class="contacts-eyebrow">VI ASPETTIAMO</span>
+      <h2>Vieni a trovarci</h2>
+      <p class="contacts-description">
+        Per informazioni, prenotazioni o ordini da asporto,
+        contattaci oppure vieni a trovarci.
+      </p>
+
+      <div class="contact-item">
+        <i class="fa-solid fa-location-dot"></i>
+        <div>
+          <h3>Indirizzo</h3>
+          <p>Corso Garibaldi, 22 Sapri (SA)</p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <i class="fa-solid fa-phone"></i>
+        <div>
+          <h3>Telefono</h3>
+          <p>+39 0974 123456</p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <i class="fa-regular fa-clock"></i>
+        <div>
+          <h3>Orari</h3>
+          <p>Tutti i giorni dalle 8:00 - 23:00</p>
+        </div>
+      </div>
+
+      <a class="contacts-button" href="tel:+390974123456">
+        Contattaci
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+
+    <!-- Quadrato con l'immagine -->
+    <div class="contacts-image">
+      <img
+        src="immagini/locale.png"
+        alt="Il nostro ristorante"
+      />
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-container">
+
+    <!-- Logo e descrizione -->
+    <div class="footer-brand">
+      <img src="immagini/logo.png" alt="Luilore" class="footer-logo">
+
+      <p>
+        Tradizione, qualità e passione.
+        Vi aspettiamo per farvi scoprire i nostri sapori.
+      </p>
+
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/" target="_blank"
+           rel="noopener noreferrer" aria-label="Instagram">
+          <i class="bi-brands bi-instagram"></i>
+        </a>
+
+        <a href="https://www.facebook.com/" target="_blank"
+           rel="noopener noreferrer" aria-label="Facebook">
+          <i class="bi-brands bi-facebook"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Navigazione -->
+    <div class="footer-links">
+      <h3>Esplora</h3>
+      <a href="#menu" (click)="scrollToSection($event, 'menu')">Il menu</a>
+      <a href="#cucina">La nostra cucina</a>
+      <a href="https://www.google.it/maps/place/Luilor%C3%A9+GASTRONOMIA/@40.0750311,15.6242564,17z/data=!3m2!4b1!5s0x133ed0428b3cc475:0x858bf1335567b462!4m6!3m5!1s0x133ed13ab40e0221:0xd6eac4b8036515e6!8m2!3d40.0750311!4d15.6268313!16s%2Fg%2F11s243xk_1?entry=ttu&g_ep=EgoyMDI2MTAxOC4wIKXMDSoASAFQAw%3D%3D">Recensioni</a>
+      <a href="https://www.google.it/maps/place/Luilor%C3%A9+GASTRONOMIA/@40.0750311,15.6242564,17z/data=!3m2!4b1!5s0x133ed0428b3cc475:0x858bf1335567b462!4m6!3m5!1s0x133ed13ab40e0221:0xd6eac4b8036515e6!8m2!3d40.0750311!4d15.6268313!16s%2Fg%2F11s243xk_1?entry=ttu&g_ep=EgoyMDI2MTAxOC4wIKXMDSoASAFQAw%3D%3D">Contatti</a>
+    </div>
+
+    <!-- Contatti -->
+    <div class="footer-contact">
+      <h3>Contattaci</h3>
+
+      <p>
+       
+        <span>Corso Garibaldi, 22 Sapri (SA)</span>
+      </p>
+
+      <p>
+        
+        <a href="tel:+390974123456">+39 0974 123456</a>
+      </p>
+
+      <p>
+        
+        <span>Tutti i giorni dalle 8:00 - 23:00</span>
+      </p>
+
+      <a href="https://www.google.it/maps/place/Luilor%C3%A9+GASTRONOMIA/@40.0750311,15.6242564,17z/data=!3m2!4b1!5s0x133ed0428b3cc475:0x858bf1335567b462!4m6!3m5!1s0x133ed13ab40e0221:0xd6eac4b8036515e6!8m2!3d40.0750311!4d15.6268313!16s%2Fg%2F11s243xk_1?entry=ttu&g_ep=EgoyMDI2MTAxOC4wIKXMDSoASAFQAw%3D%3D" class="footer-cta">Vieni a trovarci</a>
+    </div>
+
+  </div>
+
+  <!-- Parte inferiore -->
+  <div class="footer-bottom">
+    <p>© 2022 Luilore. Tutti i diritti riservati.</p>
+    <a href="#top" (click)="scrollToSection($event, 'top')">Torna all'inizio ↑</a>
+  </div>
+
+</footer>
