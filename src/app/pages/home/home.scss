@@ -10,6 +10,54 @@ section[id] {
   scroll-margin-top: 100px;
 }
 
+.splash-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #fff;
+  opacity: 1;
+  visibility: visible;
+
+  transition:
+    opacity 0.8s ease,
+    visibility 0s linear 0s;
+}
+
+.splash-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #fff;
+  opacity: 1;
+
+  animation: splashFade 1.5s ease forwards;
+}
+
+.splash-screen img {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+}
+
+@keyframes splashFade {
+  0%, 78.947% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
 /* HEADER */
 
 .site-header {

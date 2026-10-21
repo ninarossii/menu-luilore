@@ -18,7 +18,19 @@ interface Review {
 
 export class HomeComponent {
   menuAperto = false;
+  isLoading = true;
+  showSplash = true;
 
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.isLoading = false;
+
+      setTimeout(() => {
+        this.showSplash = false;
+      }, 800);
+
+    }, 3000);
+  }
 
   scrollToSection(event: MouseEvent, sectionId: string): void {
     const section = document.getElementById(sectionId);
